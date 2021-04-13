@@ -45,20 +45,19 @@ def jogar(name: str, difficulty: int, score: int, attempts: int):
         window.close()
 
     test = obj.checar_resultado(int(values['answer']))
-
     if test:
         score -= 1
         attempts += 1
         window['-verifica-'].update('CORRETA')
     else:
-        e = 'ERRADA'
         attempts += 1
-        window['-verifica-'].update(str(e))
+        window['-verifica-'].update('ERRADA')
 
     window.read()
     window.close()
-    jogar(name, difficulty, score, attempts)
-
+    if score:
+        jogar(name, difficulty, score, attempts)
 
 if __name__ == '__main__':
     main()
+    

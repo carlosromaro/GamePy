@@ -1,4 +1,5 @@
 from random import randint
+import PySimpleGUI as sg
 
 
 class Calcular:
@@ -73,21 +74,3 @@ class Calcular:
             op = '*'
 
         return f'{self.__valor1} {op} {self.__valor2} = '
-
-
-def ranking():
-    ordem: list = sorted(Jogador.jogadores, key=lambda x: x['tentativas'])
-    print("O Ranking é: \n")
-
-    for x in range(0, len(ordem)):
-        print(f"{x + 1}º Colocado(a): {ordem[x]['nome']}\n")
-
-
-class Jogador:
-    jogadores = []
-
-    def __init__(self: object, nome: str, tentativas: int) -> None:
-        self.__nome: str = nome
-        self.__tentativas: int = tentativas
-        Jogador.jogadores.append({'nome': str(self.__nome), 'tentativas': self.__tentativas})
-        ranking()
